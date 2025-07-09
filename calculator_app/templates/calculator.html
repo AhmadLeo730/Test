@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python-JavaScript Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="calculator-container">
+        <h1 class="calculator-title">Advanced Calculator</h1>
+        
+        <div class="mode-toggle">
+            <button onclick="toggleMode()">Toggle Scientific Mode</button>
+        </div>
+
+        <input type="text" id="display" class="display" readonly>
+        
+        <div id="scientific-mode" class="scientific-mode">
+            <div class="scientific-grid">
+                <button class="scientific-btn" onclick="scientificOperation('sin')">sin</button>
+                <button class="scientific-btn" onclick="scientificOperation('cos')">cos</button>
+                <button class="scientific-btn" onclick="scientificOperation('tan')">tan</button>
+                <button class="scientific-btn" onclick="scientificOperation('sqrt')">√</button>
+                <button class="scientific-btn" onclick="scientificOperation('log')">log</button>
+                <button class="scientific-btn" onclick="scientificOperation('ln')">ln</button>
+                <button class="scientific-btn" onclick="scientificOperation('square')">x²</button>
+                <button class="scientific-btn" onclick="addToDisplay('Math.PI')">π</button>
+                <button class="scientific-btn" onclick="addToDisplay('Math.E')">e</button>
+            </div>
+        </div>
+
+        <div class="button-grid">
+            <button class="clear-btn" onclick="clearDisplay()">C</button>
+            <button class="clear-btn" onclick="clearEntry()">CE</button>
+            <button class="operator-btn" onclick="addToDisplay('/')">/</button>
+            <button class="operator-btn" onclick="addToDisplay('*')">×</button>
+            
+            <button class="number-btn" onclick="addToDisplay('7')">7</button>
+            <button class="number-btn" onclick="addToDisplay('8')">8</button>
+            <button class="number-btn" onclick="addToDisplay('9')">9</button>
+            <button class="operator-btn" onclick="addToDisplay('-')">-</button>
+            
+            <button class="number-btn" onclick="addToDisplay('4')">4</button>
+            <button class="number-btn" onclick="addToDisplay('5')">5</button>
+            <button class="number-btn" onclick="addToDisplay('6')">6</button>
+            <button class="operator-btn" onclick="addToDisplay('+')">+</button>
+            
+            <button class="number-btn" onclick="addToDisplay('1')">1</button>
+            <button class="number-btn" onclick="addToDisplay('2')">2</button>
+            <button class="number-btn" onclick="addToDisplay('3')">3</button>
+            <button class="equals-btn" onclick="calculate()" rowspan="2">=</button>
+            
+            <button class="number-btn" onclick="addToDisplay('0')" colspan="2" style="grid-column: span 2;">0</button>
+            <button class="number-btn" onclick="addToDisplay('.')">.</button>
+        </div>
+
+        <div class="history">
+            <div class="history-title">Calculation History</div>
+            <div id="history-list"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html> 
